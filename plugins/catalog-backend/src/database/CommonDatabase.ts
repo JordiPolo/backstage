@@ -164,12 +164,6 @@ export class CommonDatabase implements Database {
       uid: generateUid(),
       etag: generateEtag(),
       generation: 1,
-      annotations: {
-        ...(newEntity.metadata?.annotations ?? {}),
-        ...(request.locationId
-          ? { 'backstage.io/managed-by-location': request.locationId }
-          : {}),
-      },
     };
 
     const newRow = toEntityRow(request.locationId, newEntity);
